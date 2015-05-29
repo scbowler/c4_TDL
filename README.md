@@ -51,6 +51,12 @@ todo_items[
     },
 ```
 </pre>
+- Add basic functionality to your todo-list project to
+    - read whole list and show summary data for available items
+    - read individual todo-list item and show it specifically
+    - create new data.
+        - This will eventually send data to the server
+        - For now it will simply append the data to the existing list
 
 # TODO 1.0 (Group Project)
 - <censored>
