@@ -1,26 +1,27 @@
-var todoObject = {
-	id: '',
-	user_id: 1,
-	timeStamp: '', 
-	details: ''
-}
+var todo_item = [];
 
 function get_todo(){
+	console.log('success');
 $.ajax({
 	dataType: 'json',
 	method: 'GET',
-	url:'',
+	url:'list.json', 
 	crossDomain: true,
 	cache: false,
-	success: function(reponse){
-		console.log("response ", response)
+	success: function(response){
+		console.log('response :', response);
+		window.response = response.data;
+		todo_item = todo_item.concat(response);
 	}
+});console.log('it works');
+}get_todo();
+ //end of function
 
-})
-} //end of function
+
+
 
 $(document).ready(function(){
-	get_todo();
+	
 
 $('#todo_item').focus(function() {
   $(this).val('');
@@ -40,7 +41,10 @@ $('.add').click(function(){
 });
 
 
-//remove it
+// var todo_obj = JSON.parse(todo_items);
+
+
+//remove list
 $('#list').on('click', '.remove', function(){
 $(this).hide('2000', function(){
 	$(this).remove();
