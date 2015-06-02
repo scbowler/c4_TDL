@@ -22,7 +22,6 @@ function server_call() {
         success: function(response) {
             for (var i = 0; i < response.length; i++) {
                 todo_array.push(response[i]);
-                
             }
             create_list(todo_array);
         }
