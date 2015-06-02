@@ -19,8 +19,8 @@ function todo_initialize() {
 function populate_todo_list() {
     $('#display_list').empty();
     for (var i = 0; i < todo_items_array.length; i++) {
-        var TD_item = $("<div>", {
-            class: 'TD_item col-xs-12 col-md-12 row',
+        var TD_item = $("<ul>", {
+            class: 'TD_item list-group',
             id: todo_items_array[i].id,
             data_index: i
         });
@@ -30,34 +30,93 @@ function populate_todo_list() {
             class: 'button glyphicon glyphicon-remove-sign',
             data_index: i
         });
-        var list_item_num = $("<div>", {
-            class: 'list_item_num col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+
+        var p1_button = $("<button>", {
+            type: 'button',
+            class: 'button',
+            text: "priority 1",
+            data_index: i
+        });
+
+        var p2_button = $("<button>", {
+            type: 'button',
+            class: 'button',
+            text: "priority 2",
+            data_index: i
+        });
+
+       var p3_button = $("<button>", {
+            type: 'button',
+            class: 'button',
+            text: "priority 3",
+            data_index: i
+        });
+
+        var p4_button = $("<button>", {
+            type: 'button',
+            class: 'button',
+            text: 'priority 4',
+            data_index: i
+        });
+
+        var list_item_num = $("<li>", {
+            class: 'list_item_num list-group-item',
             text: "list item number: " + (i + 1)
         });
 
-        var timestamp = $("<div>", {
-            class: 'to_do_timestamp col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var timestamp = $("<li>", {
+            class: 'to_do_timestamp list-group-item',
             text: "time: " + todo_items_array[i].timeStamp,
         });
 
-        var title = $("<div>", {
-            class: 'to_do_title col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var title = $("<li>", {
+            class: 'to_do_title list-group-item',
             text: "title: " + todo_items_array[i].title,
         });
 
-        var details = $("<div>", {
-            class: 'to_do_details col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var details = $("<li>", {
+            class: 'to_do_details list-group-item',
             text: "details: " + todo_items_array[i].details,
         });
 
-        $(TD_item).append(list_item_num, title, details, timestamp, delete_button);
+        $(TD_item).append(list_item_num, title, details, timestamp, delete_button, p1_button, p2_button, p3_button, p4_button);
         $('#display_list').append(TD_item);
 
         delete_button.click(function() {
             var index = $(this).parent().attr('data_index');
-            console.log("student ", index + ' was clicked');
-            console.log("student ", index + " was deleted");
+            console.log("list item ", index + ' was clicked');
+            
             todo_items_array.splice(index, 1);
+            populate_todo_list();
+        });
+
+
+// this is being worked on to add priority
+        p1_button.click(function() {
+            var index = $(this).parent().attr('data_index');
+            console.log("list item ", index + ' was clicked');
+            $(TD_item).addClass('list-group-item list-group-item-danger');
+            populate_todo_list();
+        });
+
+        p2_button.click(function() {
+            var index = $(this).parent().attr('data_index');
+            console.log("list item ", index + ' was clicked');
+            var priority = $(this).parent().addClass('list-group-item list-group-item-warning');
+            populate_todo_list();
+        });
+
+        p3_button.click(function() {
+            var index = $(this).parent().attr('data_index');
+            console.log("list item ", index + ' was clicked');
+            var priority = $(this).parent().addClass('list-group-item list-group-item-info');
+            populate_todo_list();
+        });
+
+        p4_button.click(function() {
+            var index = $(this).parent().attr('data_index');
+            console.log("list item ", index + ' was clicked');
+            var priority = $(this).parent().addClass('list-group-item list-group-item-success');
             populate_todo_list();
         });
     }
@@ -69,8 +128,8 @@ function populate_todo_single() {
     console.log("item list number chosen: ", iLN);
     console.log("todo_items_array: ", todo_items_array);
     for (var i = iLN; i < (iLN + 1); i++) {
-        var TD_item = $("<div>", {
-            class: 'TD_item col-xs-12 col-md-12 row',
+        var TD_item = $("<ul>", {
+            class: 'TD_item list-group',
             id: todo_items_array[i - 1].id,
             data_index: (i - 1)
         });
@@ -80,23 +139,23 @@ function populate_todo_single() {
             class: 'button glyphicon glyphicon-remove-sign',
             data_index: i
         });
-        var list_item_num = $("<div>", {
-            class: 'list_item_num col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var list_item_num = $("<li>", {
+            class: 'list_item_num list-group-item',
             text: "list item number: " + (i)
         });
 
-        var timestamp = $("<div>", {
-            class: 'to_do_timestamp col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var timestamp = $("<li>", {
+            class: 'to_do_timestamp list-group-item',
             text: "time: " + todo_items_array[i - 1].timeStamp,
         });
 
-        var title = $("<div>", {
-            class: 'to_do_title col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var title = $("<li>", {
+            class: 'to_do_title list-group-item',
             text: "title: " + todo_items_array[i - 1].title,
         });
 
-        var details = $("<div>", {
-            class: 'to_do_details col-xs-2 col-sm-2 col-md-2 col-lg-2 page_font',
+        var details = $("<li>", {
+            class: 'to_do_details list-group-item',
             text: "details: " + todo_items_array[i - 1].details,
         });
 
@@ -105,10 +164,9 @@ function populate_todo_single() {
 
         delete_button.click(function() {
             var index = $(this).parent().attr('data_index');
-            console.log("student ", index + ' was clicked');
-            console.log("student ", index + " was deleted");
+            console.log("list item ", index + ' was clicked');
             todo_items_array.splice(index, 1);
-            var index = $(this).parent().remove();
+            index = $(this).parent().remove();
             //populate_todo_single();
         });
     }
