@@ -213,7 +213,7 @@ function get_TDL_json_populate_single() {
         }
     });
 }
-
+//used to validate username and password before login is successfull
 function login_to_server() {
     console.log("ajax call");
     $.ajax({
@@ -225,9 +225,24 @@ function login_to_server() {
         crossDomain: true,
         success: function(response) {
             window.response = response;
-            $('#display_successful_login').html(response);
+            if(response.success){
+                $('body').html('');
+                link_to_multiple_todolist();
+                populate_success_data();
+            }
         }
     });
+}
+//used to switch the html from login page to todo list page.
+function link_to_multiple_todolist(){
+    $.ajax({
+        dataType: 'html',
+        url: 'multiple_to_do_item.html',
+        cache: false,
+        success: function(response){
+            $('body').html(response);
+        }
+    })
 }
 
 
