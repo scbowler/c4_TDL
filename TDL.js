@@ -246,3 +246,14 @@ $(document).ready(function() {
     })
     $('#login_button').click(login_to_server);
 });
+
+//Parris function creation to populate DOM with response object data
+function populate_success_data(){
+    $('#success').html("response.success");
+    $('#status').html("response.status");
+    $('#email').html("response.email");
+    $('#lastName').html("response.lastName");
+    $('#firstName').html("response.firstName");
+    $('#id').html("response.id");
+    $('#errors').html("response.errors");
+}
