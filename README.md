@@ -80,7 +80,7 @@ todo_items[
             - firstName: string - the user's first name
             - id: number - the user's ID number
             - errors: array - an array of strings, each holding an error that occurred during the login
-- LOOUT:
+- LOGOUT:
     - add logout button
     - AJAX request to server to log out:
         - request URL: http://s-apis.learningfuze.com/todo/logout
