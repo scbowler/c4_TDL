@@ -68,8 +68,8 @@ todo_items[
         - 'password' input: holds hte password of the user
         - 'login' button: triggers the ajax call to the server to log in
     - AJAX request to server to log in:
-        - request URL: http://learningfuze.com/tdl/login
-        - input:
+        - request URL: http://learningfuze.com/todo/login
+        - input (POST):
             - username
             - password
         - output:
