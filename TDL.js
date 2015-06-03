@@ -226,12 +226,25 @@ function login_to_server() {
         success: function(response) {
             window.response = response;
             if(response.success){
-                location.href="http://localhost/lf_projects/Sandbox/c4_TDL/multiple_to_do_item.html"
-                populate_success_data();
+                load_user_data();
             }
         }
     });
 }
+
+function load_user_data(){
+    $.ajax({
+        dataType: 'html',
+        url:'multiple_to_do_item.html',
+        cache: false,
+        success: function(response){
+            $('body').html('');
+            $('body').html(response);
+            populate_success_data();
+        }
+    })
+}
+
 
 
 $(document).ready(function() {
@@ -251,12 +264,10 @@ $(document).ready(function() {
 });
 
 //Parris function creation to populate DOM with response object data
-function populate_success_data(){
-    $('#success').html("response.success");
-    $('#status').html("response.status");
-    $('#email').html("response.email");
-    $('#lastName').html("response.lastName");
-    $('#firstName').html("response.firstName");
-    $('#id').html("response.id");
-    $('#errors').html("response.errors");
-}
+function populate_success_data() {
+            $('#email').html('Email : ' + response.email);
+            $('#lastName').html('Last Name : ' + response.lastName);
+            $('#firstName').html('First Name : ' + response.firstName);
+            $('#id').html('id : ' + response.id)
+        }
+
