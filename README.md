@@ -86,7 +86,7 @@ todo_items[
     - AJAX request to server to log out:
         - request URL: http://s-apis.learningfuze.com/todo/logout
         - input (POST):
-            - session_id: string - the current session ID for this user session
+            - username: string - the current user's username
         - output:
             - success: true/false - whether or not the login was successful
             - msgs: string - logout message, if successful
