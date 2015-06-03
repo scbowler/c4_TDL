@@ -68,6 +68,7 @@ todo_items[
         - 'password' input: holds hte password of the user
         - 'login' button: triggers the ajax call to the server to log in
     - AJAX request to server to log in:
+
         - request URL: http://s-apis.learningfuze.com/todo/login
         - input (POST):
             - username
@@ -80,6 +81,7 @@ todo_items[
             - firstName: string - the user's first name
             - id: number - the user's ID number
             - errors: array - an array of strings, each holding an error that occurred during the login
+
 - LOGOUT:
     - add logout button
     - AJAX request to server to log out:
