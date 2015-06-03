@@ -226,23 +226,11 @@ function login_to_server() {
         success: function(response) {
             window.response = response;
             if(response.success){
-                $('body').html('');
-                link_to_multiple_todolist();
+                location.href="http://localhost/lf_projects/Sandbox/c4_TDL/multiple_to_do_item.html"
                 populate_success_data();
             }
         }
     });
-}
-//used to switch the html from login page to todo list page.
-function link_to_multiple_todolist(){
-    $.ajax({
-        dataType: 'html',
-        url: 'multiple_to_do_item.html',
-        cache: false,
-        success: function(response){
-            $('body').html(response);
-        }
-    })
 }
 
 
