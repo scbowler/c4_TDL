@@ -8,51 +8,7 @@
     <link rel='stylesheet' href='todo_styles.css'>
     <script src="../assets/script.js"></script>
     <title>To Do List</title>
-<<<<<<< HEAD
-    <script>
-    
-    function validateUser(){
-    	$.ajax({
-    			url: 'http://s-apis.learningfuze.com/todo/login',
-    			dataType:'json',
-    			data:{username:'elanning', password:'test'},
-       			method: 'Post',
 
-            	success: function(response){
-       				if(response.success == false){
-       					console.log('in failure');
-       					console.log('errors: ',response.errors);
-       				}
-       				var name_span = $('<span>',{
-       									text: response.firstName + ' ' + response.lastName,
-       									id: 'user_logged_in',
-       									class:'col-xs-12'
-       				})
-       				var email_span = $('<span>',{
-       									text: response.email,
-       									id: 'email_logged_in',
-       									class:'col-xs-12',
-       				})
-
-       				$('.user_info').append(name_span, email_span);
-
-       				console.log('response: ',response);
-       			}
-       		
-
-    	})
-
-    }
-    
-
-
-
-
-    function getServerList() {
-        console.log('in getServerList');
-        $.ajax({
-=======
->>>>>>> 5ded20bd174cebfcf5bc4be84df980a9a1f1c427
 
 </head>
 
